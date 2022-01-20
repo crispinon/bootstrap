@@ -82,6 +82,8 @@ esac
 
 # Make sure user Nico does not exist and create user
 echo $answer
+echo $USER_NICO
+
 read -p "Do you want to check for create user 'Nico'? [y/N]: " answer
 case $answer in
   [Yy]*)
