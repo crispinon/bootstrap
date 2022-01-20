@@ -26,8 +26,8 @@ write_to_file () {
 # Globals
 
 VERSION="0.1"
-USER_NICO=false
-ANSIBLE=false
+USER_NICO=true
+ANSIBLE=true
 
 while :; do
   case $1 in
