@@ -76,6 +76,10 @@ case $answer in
 esac
 
 # Load linux if not already
-if [ ! "$(kldstat -v | grep linux64)" ]; then
-  kldload linux64
+#if [ ! "$(kldstat -v | grep linux64)" ]; then
+#  kldload linux64
+#fi
+
+if [ "$USER_NICO" = true ]; then
+  pw useradd -n test -u 502 -G wheel -s /bin/sh -c Nico -w random 
 fi
