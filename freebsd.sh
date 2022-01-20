@@ -93,7 +93,13 @@ case $answer in
     if [ "$USER_NICO" = true ] && [ "$(id -u nico)" != '501' ]; then
       pw useradd -n nico -u 501 -m -G wheel -s /bin/sh -c Nico -w random
       passwd nico
-      mkdir -p /home/nico
+      mkdir -p /home/nico/.ssh
+      write_to_file '
+      ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJGFWo+jX5zfSkN72yzEL4cyV8EngfN5ph52Rvva+5Yp lan-crispinon-com
+      ' authorized_keys
+      chown -r nico:nico /home/nico/.ssh
+      chmod 0700 /home/nico/.ssh
+      chmod 0600 /home/nico/.ssh/authorized_keys
     else echo "User Nico already exists!"
     fi
     ;;
