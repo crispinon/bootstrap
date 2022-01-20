@@ -84,12 +84,13 @@ esac
 echo $answer
 echo $USER_NICO
 
-read -p "Do you want to check for create user 'Nico'? [y/N]: " answer
+read -p "Do you want to check for and create user 'Nico'? [y/N]: " answer
 case $answer in
   [Yy]*)
     if [ "$USER_NICO" = true ] && [ "$(id -u nico)" != '501' ]; then
       pw useradd -n nico -u 501 -G wheel -s /bin/sh -c Nico -w random
       passwd nico
+    else echo "User Nico already exists!"
     fi
     ;;
 esac
