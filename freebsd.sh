@@ -100,7 +100,7 @@ read -p "Do you want to check for and create user 'Nico'? [y/N]: " answer
 case $answer in
   [Yy]*)
     if [ "$USER_NICO" = true ] && [ "$(id -u nico)" != '501' ]; then
-      pw useradd -n nico -u 501 -m -G wheel operator -s /bin/sh -c Nico -w random
+      pw useradd -n nico -u 501 -m -G wheel,operator -s /bin/sh -c Nico -w random
       passwd nico
       mkdir -p /home/nico/.ssh
       write_to_file 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJGFWo+jX5zfSkN72yzEL4cyV8EngfN5ph52Rvva+5Yp lan-crispinon-com
