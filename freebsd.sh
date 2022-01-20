@@ -82,6 +82,11 @@ esac
 
 # Make sure user Nico does not exist and create user
 
-if [ "$USER_NICO" = true ] && [ "$(id -u nico)" != '501' ]; then
-  pw useradd -n nico -u 502 -G wheel -s /bin/sh -c Nico -w random 
-fi
+read -p "Do you want to check for create user 'Nico'? [y/N]: " answer
+case $answer in
+  [Yy]*)
+    if [ "$USER_NICO" = true ] && [ "$(id -u nico)" != '501' ]; then
+      pw useradd -n nico -u 501 -G wheel -s /bin/sh -c Nico -w random 
+    fi
+    ;;
+esac
