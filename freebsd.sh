@@ -27,6 +27,7 @@ write_to_file () {
 
 VERSION="0.1"
 USER_NICO=true
+USER_ANSIBLE=true
 ANSIBLE=true
 
 while :; do
@@ -38,6 +39,10 @@ while :; do
     --user_nico)
         echo "Creating user Nico"
         USER_NICO=true
+        ;;
+    --user_ansible)
+        echo "Creating user Nico"
+        USER_ANSIBLE=true
         ;;
     --ANSIBLE)
         echo "Installing Ansible"
@@ -80,9 +85,7 @@ esac
 #  kldload linux64
 #fi
 
-# Make sure user Nico does not exist and create user
-echo $answer
-echo $USER_NICO
+# Make sure user Nico does not exist and create user.
 
 read -p "Do you want to check for and create user 'Nico'? [y/N]: " answer
 case $answer in
@@ -91,6 +94,17 @@ case $answer in
       pw useradd -n nico -u 501 -G wheel -s /bin/sh -c Nico -w random
       passwd nico
     else echo "User Nico already exists!"
+    fi
+    ;;
+esac
+
+read -p "Do you want to check for and create user 'Ansible'? [y/N]: " answer
+case $answer in
+  [Yy]*)
+    if [ "$USER_ANSIBLE" = true ] && [ "$(id -u ansible)" != '666' ]; then
+      pw useradd -n ansible -u 666 -G wheel -s /bin/sh -c Ansible -w random
+      passwd ansible
+    else echo "User 'Ansible' already exists!"
     fi
     ;;
 esac
