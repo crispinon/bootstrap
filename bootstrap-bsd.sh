@@ -36,9 +36,7 @@ esac
 read -p "Do you want to check for and update package index? [y/N]: " answer
 case $answer in
   [Yy]*)
-    pkg update
     pkg version
-    exit
     ;;
 esac
 
