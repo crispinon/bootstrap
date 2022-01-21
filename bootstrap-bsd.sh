@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ## fetch https://raw.githubusercontent.com/crispinon/bootstrap/main/bootstrap-bsd.sh
-
+clear
 set -e
 
 # Util functions
