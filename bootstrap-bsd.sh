@@ -37,7 +37,6 @@ read -p "Do you want to check for and update package index? [y/N]: " answer
 case $answer in
   [Yy]*)
     pkg update
-    pkg clean
     pkg version
     exit
     ;;
@@ -61,6 +60,21 @@ case $answer in
     fi
     ;;
 esac
+
+read -p "Do you want to install git'? [y/N]: " answer
+case $answer in
+  [Yy]*)
+    pkg install git 
+    ;;
+esac
+
+read -p "Do you want to install Ansible'? [y/N]: " answer
+case $answer in
+  [Yy]*)
+    pkg install py38-ansible 
+    ;;
+esac
+
 
 read -p "Do you want to check for and create user 'Ansible'? [y/N]: " answer
 case $answer in
