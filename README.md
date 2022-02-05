@@ -9,4 +9,4 @@ Performs:
   - create local user
   - install Git
   - install Ansible
-  - create dedicated Ansible user
+
