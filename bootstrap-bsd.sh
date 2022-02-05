@@ -72,15 +72,3 @@ case $answer in
     pkg install py38-ansible 
     ;;
 esac
-
-
-read -p "Do you want to check for and create user 'Ansible'? [y/N]: " answer
-case $answer in
-  [Yy]*)
-    if [ "$(id -u ansible)" != '666' ]; then
-      pw useradd -n ansible -u 666 -m -G wheel -s /usr/sbin/nologin -c 'Unpriviledged user for Ansible' -w random
-      passwd ansible
-    else echo "User 'Ansible' already exists!"
-    fi
-    ;;
-esac
