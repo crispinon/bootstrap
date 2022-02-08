@@ -53,6 +53,7 @@ case $answer in
       chmod 0700 /home/nico/.ssh
       write_to_file 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJGFWo+jX5zfSkN72yzEL4cyV8EngfN5ph52Rvva+5Yp lan-crispinon-com
       ' /home/nico/.ssh/authorized_keys
+      chown nico:nico /home/nico/.ssh/authorized_keys
       chmod 0600 /home/nico/.ssh/authorized_keys
     else echo "User Nico already exists!"
     fi
