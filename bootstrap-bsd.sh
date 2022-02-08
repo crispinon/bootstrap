@@ -26,7 +26,7 @@ CURRENT_USER=$(logname)
 read -p "Do you want to check for and install system updates? [y/N]: " answer
 case $answer in
   [Yy]*)
-    freebsd-update fetch install
+    freebsd-update fetch install --not-running-from-cron
     printf "\nPlease reboot then re-run this script to continue...\n"
     exit
     ;;
@@ -36,7 +36,7 @@ esac
 read -p "Do you want to check for and update package index? [y/N]: " answer
 case $answer in
   [Yy]*)
-    pkg version
+    pkg bootstrap
     ;;
 esac
 
