@@ -55,6 +55,10 @@ case $answer in
       ' /home/nico/.ssh/authorized_keys
       chown nico:nico /home/nico/.ssh/authorized_keys
       chmod 0600 /home/nico/.ssh/authorized_keys
+      write_to_file 'git clone git@github.com:crispinon/ansible_pull.git
+      ' /home/nico/ansible_pull.sh
+      chown nico:nico /home/nico/ansible_pull.sh
+      chmod 0755 /home/nico/ansible_pull.sh
     else echo "User Nico already exists!"
     fi
     ;;
@@ -77,13 +81,6 @@ esac
 read -p "Press any key to continue..." 
 case 1==1
   clear
-  echo "Now copy your SSH private key to continue..."
-  write_to_file 'cd /root
-  ' /root/ansible_pull.sh
-  write_to_file 'mkdir -p ./ansible_pull
-  ' /root/ansible_pull.sh
-  write_to_file 'git clone git@github.com:crispinon/ansible_pull.git
-  chown root:wheel /root/ansible_pull.sh
-  chmod 0755 /root/ansible_pull.sh
+  echo "Now copy your Github SSH private key to continue..."
   ;;
 esac
