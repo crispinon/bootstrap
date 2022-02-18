@@ -60,10 +60,10 @@ case $answer in
     ;;
 esac
 
-read -p "Do you want to install git'? [y/N]: " answer
+read -p "Do you want to install git-lite'? [y/N]: " answer
 case $answer in
   [Yy]*)
-    pkg install git 
+    pkg install git-lite 
     ;;
 esac
 
@@ -72,4 +72,18 @@ case $answer in
   [Yy]*)
     pkg install py38-ansible 
     ;;
+esac
+
+read -p "Press any key to continue..." 
+case 1==1
+  clear
+  echo "Now copy your SSH private key to continue..."
+  write_to_file 'cd /root
+  ' /root/ansible_pull.sh
+  write_to_file 'mkdir -p ./ansible_pull
+  ' /root/ansible_pull.sh
+  write_to_file 'git clone git@github.com:crispinon/ansible_pull.git
+  chown root:wheel /root/ansible_pull.sh
+  chmod 0755 /root/ansible_pull.sh
+  ;;
 esac
