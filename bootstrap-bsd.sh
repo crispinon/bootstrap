@@ -74,7 +74,7 @@ esac
 read -p "Do you want to install Ansible'? [y/N]: " answer
 case $answer in
   [Yy]*)
-    pkg install py38-ansible 
+    pkg install py39-ansible 
     ;;
 esac
 
