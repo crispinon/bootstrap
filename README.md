@@ -14,3 +14,4 @@ Performs:
   - install Git-lite
   - install Ansible
 
+fetch https://raw.githubusercontent.com/crispinon/bootstrap/main/bootstrap-bsd.sh
